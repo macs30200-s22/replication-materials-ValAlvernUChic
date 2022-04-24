@@ -63,5 +63,12 @@ rawEmbeddings, comparedEmbeddings = compareModels(df, 'year', sort = True)
 ```python 
 word = "word of interest" 
 embeddingsDict = comparedEmbeddings
-getDivegenceDF(word, embeddingsDict)
+pltDF = getDivergenceDF(targetWord, comparedEmbeddings)
+fig, ax = plt.subplots(figsize = (10, 7))
+seaborn.heatmap(pltDF, ax = ax, annot = True) #set annot True for a lot more information
+ax.set_xlabel("Starting year")
+ax.set_ylabel("Final year")
+ax.set_ylabel("Final year")
+ax.set_title("Yearly linguistic change for: '{}'".format(targetWord))
+plt.show()
 ```
