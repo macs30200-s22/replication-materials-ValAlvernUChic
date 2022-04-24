@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/481045361.svg)](https://zenodo.org/badge/latestdoi/481045361)
+
 # Findings
 
 The below image features a heat map that highlights the **cosine distance** between the use of the term migrantworker and the rest of the 
