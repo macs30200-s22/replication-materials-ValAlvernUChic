@@ -57,4 +57,9 @@ df = "path to final_df created in preprocessing"
 rawEmbeddings, comparedEmbeddings = compareModels(df, 'year', sort = True)
 ```
 
-### Step 3: Create heat map showing the temporal shift in 
+### Step 3: Create heat map showing the temporal shift in chosen word 
+```python 
+word = "word of interest" 
+embeddingsDict = comparedEmbeddings
+getDivegenceDF(word, embeddingsDict)
+```
