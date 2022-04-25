@@ -6,10 +6,13 @@ The below image features a heat map that highlights the divergence between diffe
 
 ![alt text](https://github.com/macs30200-s22/replication-materials-ValAlvernUChic/blob/main/migrantworker%20embeddings.png)
 
-The 
+The below heatmap features how the word 'riot' evolved over the years. Interestingly, there was an increased difference in the use of the word between 2013 and 2014 from 2012 to 2013, with a score of 1.1. This suggests that the way riot was used changed from 2012 to 2014, potentially capturing a change from when the Little India riot happened in December, 2013. 
 
 ![alt text](https://github.com/macs30200-s22/replication-materials-ValAlvernUChic/blob/main/riot%20embeddings.png)
 
+The heatmap below illustrates the change in how the term 'migrantworker' was used. Prior to the riot (2012-2013), it seems that the use of the term was stable with the divergence between the two years at 0.85. However, this changes between 2013-2014 and interestingly, looking at the first two columns of the graph shows that the two years were consistently different from the years following the riot. This could point toward a significant and long-lasting shift in the way the workers were talked about. This is additionally suggested by the cluster of values below 1 from 2014 onwards, indicating little differentiation from each other. 
+
+![alt text](https://github.com/macs30200-s22/replication-materials-ValAlvernUChic/blob/main/migrantworkers%20embeddings.png)
 
 # Saving Files
 Save hansard_full 2 into your chosen directory - record this directory; you'll need it
