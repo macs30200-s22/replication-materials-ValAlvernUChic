@@ -31,7 +31,7 @@ clean(df)
 
 ### Step 2: Create Dataframes 
 ```python
-savepath = "wherever you want to save your yearly dataframes"
+savepath = "wherever you want to save your yearly dataframes *make sure it's a directory! and ends with a /"
 create_df(files, savepath)
 ```
 
