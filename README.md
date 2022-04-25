@@ -2,7 +2,7 @@
 
 # Findings
 
-The below image features a heat map that highlights the divergence between different years with respect to the use of the term migrantworker. The score ranges from 0-2, with higher values indicating greater divergences and vice versa. For example, between 2012 -2014, 2015-2019, and 2020-2021, the use of the term 'minister' had little change in those groups. This makes sense as these years coincide with the individual parliament sessions (12th, 13th, and 14th). 
+The below image features a heat map that highlights the divergence between different years with respect to the use of the term 'minister'. The score ranges from 0-2, with higher values indicating greater divergences and vice versa. For example, between 2012 -2014, 2015-2019, and 2020-2021, the use of the term 'minister' had little change in those groups. This makes sense as these years coincide with the individual parliament sessions (12th, 13th, and 14th). 
 
 ![alt text](https://github.com/macs30200-s22/replication-materials-ValAlvernUChic/blob/main/minister%20embeddings.png)
 
