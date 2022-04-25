@@ -84,3 +84,4 @@ ax.set_ylabel("Final year")
 ax.set_title("Yearly linguistic change for: '{}'".format(targetWord))
 plt.show()
 ```
+If you use this repository for a scientific publication, we would appreciate it if you cited the Zenodo [DOI](https://zenodo.org/badge/latestdoi/481045361) (see the "Cite as" section on our Zenodo page for more details).
