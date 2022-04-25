@@ -4,6 +4,9 @@
 
 The below image features a heat map that highlights the divergence between different years with respect to the use of the term migrantworker. The score ranges from 0-2, with higher values indicating greater divergences and vice versa. For example, between 2012 and 2013, the use of the term 'minister' had little change 
 
+![alt text](https://github.com/macs30200-s22/replication-materials-ValAlvernUChic/blob/main/riot%20embeddings.png)
+![alt text](https://github.com/macs30200-s22/replication-materials-ValAlvernUChic/blob/main/migrantworker%20embeddings.png)
+
 # Saving Files
 Save hansard_full 2 into your chosen directory - record this directory; you'll need it
 
