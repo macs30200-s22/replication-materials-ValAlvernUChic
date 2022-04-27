@@ -2,14 +2,19 @@
 
 # Findings
 
-The below image features a heat map that highlights the divergence between different years with respect to the use of the term migrantworker. The score ranges from 0-2, with higher values indicating greater divergences and vice versa. For example, between 2012 -2014, 2015-2019, and 2020-2021, the use of the term 'minister' had little change in those groups. This makes sense as these years coincide with the individual parliament sessions (12th, 13th, and 14th). 
+The below image features a heat map that highlights the divergence between different years with respect to the use of the term 'minister'. The score ranges from 0-2, with higher values indicating greater divergences and vice versa. For example, between 2012 -2014, 2015-2019, and 2020-2021, the use of the term 'minister' had little change in those groups. This makes sense as these years coincide with the individual parliament sessions (12th, 13th, and 14th). 
 
-![alt text](https://github.com/macs30200-s22/replication-materials-ValAlvernUChic/blob/main/migrantworker%20embeddings.png)
+![alt text](https://github.com/macs30200-s22/replication-materials-ValAlvernUChic/blob/main/minister%20embeddings.png)
 
-The 
+The below heatmap features how the word 'riot' evolved over the years. Interestingly, there was an increased difference in the use of the word between 2013 and 2014 from 2012 to 2013, with a score of 1.1. This suggests that the way riot was used changed from 2012 to 2014, potentially capturing a change from when the Little India riot happened in December, 2013. 
 
 ![alt text](https://github.com/macs30200-s22/replication-materials-ValAlvernUChic/blob/main/riot%20embeddings.png)
 
+The heatmap below illustrates the change in how the term 'migrantworker' was used. Prior to the riot (2012-2013), it seems that the use of the term was stable with the divergence between the two years at 0.85. However, this changes between 2013-2014 and interestingly, looking at the first two columns of the graph shows that the two years were consistently different from the years following the riot. This could point toward a significant and long-lasting shift in the way the workers were talked about. This is additionally suggested by the cluster of values below 1 from 2014 onwards, indicating little differentiation from each other. 
+
+![alt text](https://github.com/macs30200-s22/replication-materials-ValAlvernUChic/blob/main/migrantworker%20embeddings.png)
+
+Relevance: These findings validate that the method used can capture high-level patterns that coincide with real-world temporal trends. The 'riot' and 'migrantworker' heatmaps will be especially useful starting points for more qualitative inspections of the data. The heatmaps can also be compared with/validated with KL divergence heatmaps to further illustrate the significance of the events. 
 
 # Saving Files
 Save hansard_full 2 into your chosen directory - record this directory; you'll need it
@@ -79,3 +84,4 @@ ax.set_ylabel("Final year")
 ax.set_title("Yearly linguistic change for: '{}'".format(targetWord))
 plt.show()
 ```
+If you use this repository for a scientific publication, we would appreciate it if you cited the Zenodo [DOI](https://zenodo.org/badge/latestdoi/481045361) (see the "Cite as" section on our Zenodo page for more details).
