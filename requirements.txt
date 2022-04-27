@@ -1,0 +1,10 @@
+python==3.8.2
+gensim==4.1.2
+nltk==3.5
+pandas==1.4.1
+tqdm==4.62.2
+json5==0.9.5
+sklean==0.0
+spacy==3.2.4
+seaborn==0.11.0
+matplotlib--3.3.2
