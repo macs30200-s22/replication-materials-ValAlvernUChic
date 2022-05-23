@@ -71,7 +71,7 @@ df = "path to final_df created in preprocessing"
 rawEmbeddings, comparedEmbeddings = compareModels(df, 'year', sort = True)
 ```
 
-### Step 3: Create heat map showing the temporal shift in chosen word 
+### Step 3a: Create heat map showing the temporal shift in chosen word 
 ```python 
 word = "word of interest" 
 embeddingsDict = comparedEmbeddings
@@ -84,4 +84,51 @@ ax.set_ylabel("Final year")
 ax.set_title("Yearly linguistic change for: '{}'".format(targetWord))
 plt.show()
 ```
+
+### Step 3b: Create cultural dimensions projection 
+```python 
+# Projections 
+morality_words = pd.read_csv('/home/valalvern/models/morality_pairs.csv')
+word = 'migrantworker'
+moral_words = [x for x in morality_words['moral_eng'] if pd.isnull(x) == False]
+immoral_words = [x for x in morality_words['immoral_eng'] if pd.isnull(x) == False]
+
+safe = ['secure', 'safe', 'sound', 'harmless', 'innocuous', 'benign', 'wholesome', 'mild', 'guard', 'shield', 'shielded', 'guarded', 'secured']
+unsafe = ['insecure', 'unsafe', 'unsound', 'threat', 'harmful', 'hostile', 'vulnerable', 'reckless', 'dangerous', 'threatening', 'risky', 'prevarious', 'unpredictable']
+
+def project_year(embeddingsDict, migrant):
+    '''
+    construct affluence, morality, and status dimensions, and
+    project 'democracy' on these dimensions for each years
+    '''
+    m = []
+    s = []
+    cats = sorted(set(embeddingsDict.keys()))
+    for catOuter in cats:
+        print(catOuter)
+        #embeddings_aligned[catOuter] = [embeddings_raw[catOuter]]
+        #for embed in embeddingsDict[catOuter][1:]:
+        embed = embeddingsDict[catOuter][0]
+        security = dimension(embed, safe, unsafe)
+        morality = dimension(embed, moral_words, immoral_words)
+        try:
+            m.append(cosine_similarity(embed.wv[migrant].reshape(1, -1), morality.reshape(1,-1))[0][0])
+            s.append(cosine_similarity(embed.wv[migrant].reshape(1, -1), security.reshape(1, -1))[0][0])
+        except:
+            print(catOuter)
+    projection_df = pd.DataFrame({'morality' : m, 'security': s}, index = [i for i in cats]
+                                  )
+    return projection_df
+    
+def plot_projection(projection, title):
+    #plt.plot(projection_df_safety, label='safety')
+    plt.plot(projection['morality'], label = 'morality')
+    plt.plot(projection['security'], label = 'security')
+    plt.title('{} Projection'.format(title))
+    plt.xlabel('Year')
+    plt.ylabel('Projection')
+    plt.legend(loc=3)
+    
+```
+
 If you use this repository for a scientific publication, we would appreciate it if you cited the Zenodo [DOI](https://zenodo.org/badge/latestdoi/481045361) (see the "Cite as" section on our Zenodo page for more details).
