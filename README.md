@@ -54,6 +54,90 @@ savepath = "wherever you wanna save your final df"
 
 create_final_df(path, savepath)
 ```
+# KL Divergence 
+
+### Step 1: Creating new DF for KL divergence
+``` python
+def sorted_df(df, category):
+    cats = sorted(set(df[category]))
+    new_df = pd.DataFrame(index = cats, columns = ['normalized'])
+    for cat in tqdm(cats):
+        #This can take a while
+        print("Embedding {}".format(cat), end = '\r')
+        subsetDF = df[df[category] == cat]
+        vocabulary = subsetDF['normalized_KL'].sum()
+        print(new_df)
+        new_df.loc[cat]['normalized'] = vocabulary
+    
+    return new_df
+
+KL = sorted_df(df, 'year')
+```
+
+### Step 2: Initialize Divergence code 
+``` python 
+#Initializing Divergence code
+def kl_divergence(X, Y):
+    P = X.copy()
+    Q = Y.copy()
+    P.columns = ['P']
+    Q.columns = ['Q']
+    df = Q.join(P).fillna(0)
+    p = df.iloc[:,1]
+    q = df.iloc[:,0]
+    D_kl = scipy.stats.entropy(p, q)
+    return D_kl
+
+def chi2_divergence(X,Y):
+    P = X.copy()
+    Q = Y.copy()
+    P.columns = ['P']
+    Q.columns = ['Q']
+    df = Q.join(P).fillna(0)
+    p = df.iloc[:,1]
+    q = df.iloc[:,0]
+    return scipy.stats.chisquare(p, q).statistic
+
+def Divergence(corpus1, corpus2, difference="KL"):
+    """Difference parameter can equal KL, Chi2, or Wass"""
+    freqP = nltk.FreqDist(corpus1)
+    P = pd.DataFrame(list(freqP.values()), columns = ['frequency'], index = list(freqP.keys()))
+    freqQ = nltk.FreqDist(corpus2)
+    Q = pd.DataFrame(list(freqQ.values()), columns = ['frequency'], index = list(freqQ.keys()))
+    if difference == "KL":
+        return kl_divergence(P, Q)
+    elif difference == "Chi2":
+        return chi2_divergence(P, Q)
+    elif difference == "KS":
+        try:
+            return scipy.stats.ks_2samp(P['frequency'], Q['frequency']).statistic
+        except:
+            return scipy.stats.ks_2samp(P['frequency'], Q['frequency'])
+    elif difference == "Wasserstein":
+        try:
+            return scipy.stats.wasserstein_distance(P['frequency'], Q['frequency'], u_weights=None, v_weights=None).statistic
+        except:
+            return scipy.stats.wasserstein_distance(P['frequency'], Q['frequency'], u_weights=None, v_weights=None)
+```
+### Step 3: Creating KL Divergence Heatmap
+``` python 
+L = []
+for p in tqdm(corpora):
+    l = []
+    for q in corpora:
+        l.append(Divergence(p,q, difference = 'KL'))
+    L.append(l)
+M = np.array(L)
+fig = plt.figure()
+div = pd.DataFrame(M, columns = fileids, index = fileids)
+ax = sns.heatmap(div, annot=True)
+ax.set_xlabel("Starting year")
+ax.set_ylabel("Final year")
+bottom, top = ax.get_ylim()
+ax.set_ylim(bottom + 0.5, top - 0.5)
+ax.set_title("Yearly KL-Divergence")
+plt.show()
+```
 
 # Word Embeddings
 
