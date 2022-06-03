@@ -2,7 +2,7 @@
 
 # Data
 
-The data consists of previously scraped data used in another study, found [here](https://github.com/nus-cs3244-ml-singapore-7/sg-parliament-hansard-nlp-demo). Specifically, this study uses data from 2012 to 2021 from the Singaporean Hansard. 
+The data consists of previously scraped data used in another study, found [here](https://github.com/nus-cs3244-ml-singapore-7/sg-parliament-hansard-nlp-demo). Specifically, this study uses data from 2012 to 2021 from the Singaporean Hansard. The main files of interest are in hansard_full 2, which lists folders containing data from the different parliament sittings - 11th refers to the 11th parliament, 12th to the 12th parliament, etc. final_df.csv is the final working csv file while format_hansard.py and formatted_to_txt.py are py files used to prepare the data for replication. These py files were adapted from [here](https://github.com/nus-cs3244-ml-singapore-7/sg-parliament-hansard-nlp-demo).
 
 
 # Findings
