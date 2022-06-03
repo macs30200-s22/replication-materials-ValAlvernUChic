@@ -2,7 +2,7 @@
 
 # Data
 
-The data consists of previously scraped data used in another study, found [here][https://github.com/nus-cs3244-ml-singapore-7/sg-parliament-hansard-nlp-demo]. Specifically, this study uses data from 2012 to 2021 from the Singaporean Hansard. 
+The data consists of previously scraped data used in another study, found [here]((https://github.com/nus-cs3244-ml-singapore-7/sg-parliament-hansard-nlp-demo)). Specifically, this study uses data from 2012 to 2021 from the Singaporean Hansard. 
 
 
 # Findings
