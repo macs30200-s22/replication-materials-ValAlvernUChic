@@ -1,5 +1,10 @@
 [![DOI](https://zenodo.org/badge/481045361.svg)](https://zenodo.org/badge/latestdoi/481045361)
 
+# Data
+
+The data consists of previously scraped data used in another study, found [here]([url](https://github.com/nus-cs3244-ml-singapore-7/sg-parliament-hansard-nlp-demo)). Specifically, this study uses data from 2012 to 2021 from the Singaporean Hansard. 
+
+
 # Findings
 
 The below image features a heat map that highlights the divergence between different years with respect to the use of the term 'minister'. The score ranges from 0-2, with higher values indicating greater divergences and vice versa. For example, between 2012 -2014, 2015-2019, and 2020-2021, the use of the term 'minister' had little change in those groups. This makes sense as these years coincide with the individual parliament sessions (12th, 13th, and 14th). 
